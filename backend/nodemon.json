@@ -1,0 +1,7 @@
+{
+    "watch": [
+        "backend/app"
+    ],
+    "ext": "ts",
+    "exec": "tsx -r app/index.ts"
+}

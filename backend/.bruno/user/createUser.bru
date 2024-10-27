@@ -1,0 +1,20 @@
+meta {
+  name: createUser
+  type: http
+  seq: 1
+}
+
+get {
+  url: /user/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "password": "securePassword123",
+    "isAdmin": false
+  }
+}

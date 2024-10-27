@@ -1,0 +1,12 @@
+{
+    "name": "wt_mini_project",
+    "main": "index.js",
+    "scripts": {
+        "backend": "cd backend && pnpm dev",
+        "frontend": "cd frontend && pnpm dev",
+        "dev": "conc \"pnpm backend\" \"pnpm frontend\""
+    },
+    "dependencies": {
+        "concurrently": "^9.0.1"
+    }
+}

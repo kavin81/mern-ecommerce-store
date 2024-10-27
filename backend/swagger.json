@@ -1,0 +1,149 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Express API",
+        "description": "API documentation for the Express.js project"
+    },
+    "host": "localhost:3000",
+    "basePath": "/api/v1",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/product/create": {
+            "post": {
+                "summary": "Create a new product",
+                "description": "Creates a new product in the database",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Product object that needs to be added",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Product"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Product created successfully",
+                        "schema": {
+                            "$ref": "#/definitions/Product"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/create": {
+            "post": {
+                "summary": "Create a new user",
+                "description": "Creates a new user in the database",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "User object that needs to be added",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "User created successfully",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Product": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "rating": {
+                    "type": "number"
+                },
+                "price":{
+                    "type":"number"
+                },
+                "brand":{
+                    "type":"string"
+                },
+                "category":{
+                    "type":"string"
+                },
+                "countInStock":{
+                    "type":"number"
+                }
+            },
+            "required": [
+                "name",
+                "description",
+                "image",
+                "rating",
+                "price",
+                "brand",
+                "category",
+                "countInStock"
+            ]
+        },
+        "User": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "isAdmin": {
+                    "type": "boolean",
+                    "default": false
+                }
+            },
+            "required": [
+                "name",
+                "email",
+                "password"
+            ]
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
